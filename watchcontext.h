@@ -1,6 +1,8 @@
 #ifndef WATCHCONTEXT_H
 #define WATCHCONTEXT_H
 
+#include <memory>
+
 class IWatchState;
 
 class WatchContext
@@ -16,7 +18,7 @@ public:
     ~WatchContext();
 
 private:
-    IWatchState *state;
+    std::unique_ptr<IWatchState> state;
     WatchContext(const WatchContext&) = delete;
     WatchContext& operator=(const WatchContext&) = delete;
 };

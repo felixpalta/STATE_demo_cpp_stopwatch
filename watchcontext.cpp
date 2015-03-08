@@ -9,13 +9,11 @@ WatchContext::WatchContext()
 
 WatchContext::~WatchContext()
 {
-    delete state;
 }
 
 void WatchContext::set_state(IWatchState *new_state)
 {
-    delete state;
-    state = new_state;
+    state.reset(new_state);
 }
 
 void WatchContext::start_watch()
