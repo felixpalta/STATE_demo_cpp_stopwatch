@@ -22,3 +22,8 @@ void WatchStoppedState::stop(WatchContext *)
 {
     cout << "Stop watch: already stopped\n";
 }
+
+void WatchStoppedState::pause(WatchContext *)
+{
+    cout << "Pause watch: already stopped\n";
+}

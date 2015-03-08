@@ -6,7 +6,8 @@ CONFIG -= qt
 SOURCES += main.cpp \
     watchstartedstate.cpp \
     watchcontext.cpp \
-    watchstoppedstate.cpp
+    watchstoppedstate.cpp \
+    watchpausedstate.cpp
 
 *g++*{
 QMAKE_CXXFLAGS +=   -Weffc++ -std=c++11 -pedantic -Wall -Wextra \
@@ -24,4 +25,5 @@ HEADERS += \
     iwatchstate.h \
     watchstartedstate.h \
     watchcontext.h \
-    watchstoppedstate.h
+    watchstoppedstate.h \
+    watchpausedstate.h

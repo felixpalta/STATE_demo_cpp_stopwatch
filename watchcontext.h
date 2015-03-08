@@ -10,6 +10,7 @@ public:
 
     void start_watch();
     void stop_watch();
+    void pause_watch();
 
     void set_state(IWatchState *new_state);
     ~WatchContext();

@@ -1,6 +1,7 @@
 #include "watchstartedstate.h"
 #include "watchcontext.h"
 #include "watchstoppedstate.h"
+#include "watchpausedstate.h"
 
 #include <iostream>
 #include <cassert>
@@ -22,4 +23,12 @@ void WatchStartedState::stop(WatchContext *w)
 
     cout << "Stop watch: new STATE = STOPPED\n";
     w->set_state(new WatchStoppedState());
+}
+
+void WatchStartedState::pause(WatchContext *w)
+{
+    assert(w != nullptr);
+
+    cout << "Pause watch: new STATE = PAUSED\n";
+    w->set_state(new WatchPausedState());
 }

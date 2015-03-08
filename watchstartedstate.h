@@ -9,7 +9,8 @@ public:
     WatchStartedState();
     void start(WatchContext *) override;
     void stop(WatchContext *w) override;
-    ~WatchStartedState() = default;
+    void pause(WatchContext *w) override;
+    ~WatchStartedState() override = default;
 
 };
 

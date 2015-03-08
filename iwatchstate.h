@@ -10,6 +10,7 @@ public:
 
     virtual void start(WatchContext *w) = 0;
     virtual void stop(WatchContext *w) = 0;
+    virtual void pause(WatchContext *w) = 0;
     virtual ~IWatchState() {}
 };
 

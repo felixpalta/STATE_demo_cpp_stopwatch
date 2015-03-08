@@ -27,3 +27,8 @@ void WatchContext::stop_watch()
 {
     state->stop(this);
 }
+
+void WatchContext::pause_watch()
+{
+    state->pause(this);
+}
