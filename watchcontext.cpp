@@ -1,5 +1,4 @@
 #include "watchcontext.h"
-#include "watchstartedstate.h"
 #include "watchstoppedstate.h"
 
 WatchContext::WatchContext()
