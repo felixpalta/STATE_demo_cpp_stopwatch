@@ -7,9 +7,11 @@ class WatchPausedState : public IWatchState
 {
 public:
     WatchPausedState();
-    void start(WatchContext *w) override;
-    void stop(WatchContext *w) override;
-    void pause(WatchContext *) override;
+private:
+    void _start(WatchContext *w) override;
+    void _stop(WatchContext *w) override;
+    void _pause(WatchContext *) override;
+public:
     ~WatchPausedState() override = default;
 };
 

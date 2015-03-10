@@ -12,12 +12,12 @@ WatchStartedState::WatchStartedState()
 {
 }
 
-void WatchStartedState::start(WatchContext *)
+void WatchStartedState::_start(WatchContext *)
 {
     cout << "Start watch: already started\n";
 }
 
-void WatchStartedState::stop(WatchContext *w)
+void WatchStartedState::_stop(WatchContext *w)
 {
     assert(w != nullptr);
 
@@ -25,7 +25,7 @@ void WatchStartedState::stop(WatchContext *w)
     w->set_state(new WatchStoppedState());
 }
 
-void WatchStartedState::pause(WatchContext *w)
+void WatchStartedState::_pause(WatchContext *w)
 {
     assert(w != nullptr);
 
