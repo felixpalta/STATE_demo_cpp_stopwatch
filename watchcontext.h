@@ -1,11 +1,13 @@
 #ifndef WATCHCONTEXT_H
 #define WATCHCONTEXT_H
 
+#include "iwatchcontext.h"
+
 #include <memory>
 
 class IWatchState;
 
-class WatchContext
+class WatchContext : public IWatchContext
 {
 public:
     WatchContext();

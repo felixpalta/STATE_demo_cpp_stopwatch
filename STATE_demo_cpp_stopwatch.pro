@@ -26,4 +26,5 @@ HEADERS += \
     watchstartedstate.h \
     watchcontext.h \
     watchstoppedstate.h \
-    watchpausedstate.h
+    watchpausedstate.h \
+    iwatchcontext.h

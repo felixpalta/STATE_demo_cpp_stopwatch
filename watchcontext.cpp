@@ -2,7 +2,7 @@
 #include "watchstoppedstate.h"
 
 WatchContext::WatchContext()
-    : state(new WatchStoppedState())
+    : state(new WatchStoppedState(this))
 {
 }
 
@@ -17,15 +17,15 @@ void WatchContext::set_state(IWatchState *new_state)
 
 void WatchContext::start_watch()
 {
-    state->start(this);
+    state->start();
 }
 
 void WatchContext::stop_watch()
 {
-    state->stop(this);
+    state->stop();
 }
 
 void WatchContext::pause_watch()
 {
-    state->pause(this);
+    state->pause();
 }

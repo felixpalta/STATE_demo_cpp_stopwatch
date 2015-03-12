@@ -6,11 +6,11 @@
 class WatchStoppedState : public IWatchState
 {
 public:
-    WatchStoppedState();
+    WatchStoppedState(IWatchContext *context);
 private:
-    void _start(WatchContext *w) override;
-    void _stop(WatchContext *) override;
-    void _pause(WatchContext *) override;
+    void _start() override;
+    void _stop() override;
+    void _pause() override;
 public:
     ~WatchStoppedState() override = default;
 };

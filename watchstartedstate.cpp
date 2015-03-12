@@ -1,5 +1,5 @@
 #include "watchstartedstate.h"
-#include "watchcontext.h"
+#include "iwatchcontext.h"
 #include "watchstoppedstate.h"
 #include "watchpausedstate.h"
 
@@ -8,27 +8,24 @@
 
 using namespace std;
 
-WatchStartedState::WatchStartedState()
+WatchStartedState::WatchStartedState(IWatchContext *context)
+    : IWatchState(context)
 {
 }
 
-void WatchStartedState::_start(WatchContext *)
+void WatchStartedState::_start()
 {
     cout << "Start watch: already started\n";
 }
 
-void WatchStartedState::_stop(WatchContext *w)
+void WatchStartedState::_stop()
 {
-    assert(w != nullptr);
-
     cout << "Stop watch: new STATE = STOPPED\n";
-    w->set_state(new WatchStoppedState());
+    w->set_state(new WatchStoppedState(w));
 }
 
-void WatchStartedState::_pause(WatchContext *w)
+void WatchStartedState::_pause()
 {
-    assert(w != nullptr);
-
     cout << "Pause watch: new STATE = PAUSED\n";
-    w->set_state(new WatchPausedState());
+    w->set_state(new WatchPausedState(w));
 }

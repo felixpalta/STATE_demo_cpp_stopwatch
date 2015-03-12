@@ -1,32 +1,32 @@
 #include "watchpausedstate.h"
 #include "watchstartedstate.h"
 #include "watchstoppedstate.h"
-#include "watchcontext.h"
+#include "iwatchcontext.h"
 
 #include <iostream>
 #include <cassert>
 
 using namespace std;
 
-WatchPausedState::WatchPausedState()
+WatchPausedState::WatchPausedState(IWatchContext *context)
+    : IWatchState(context)
 {
 }
 
-void WatchPausedState::_start(WatchContext *w)
+
+void WatchPausedState::_start()
 {
-    assert(w != nullptr);
     cout << "Restart watch: new state STARTED\n";
-    w->set_state(new WatchStartedState());
+    w->set_state(new WatchStartedState(w));
 }
 
-void WatchPausedState::_stop(WatchContext *w)
+void WatchPausedState::_stop()
 {
-    assert(w != nullptr);
     cout << "Stop watch: new state STOPPED\n";
-    w->set_state(new WatchStoppedState());
+    w->set_state(new WatchStoppedState(w));
 }
 
-void WatchPausedState::_pause(WatchContext *)
+void WatchPausedState::_pause()
 {
     cout << "Pause watch: already paused\n";
 }

@@ -1,34 +1,44 @@
 #ifndef IWATCHSTATE_H
 #define IWATCHSTATE_H
 
-class WatchContext;
+class IWatchContext;
 
 class IWatchState
 {
 public:
-    IWatchState() {}
-
-    virtual ~IWatchState() {}
-
-    void start(WatchContext *w)
+    IWatchState(IWatchContext *context)
+        : w(context)
     {
-        _start(w);
     }
 
-    void stop(WatchContext *w)
+    virtual ~IWatchState() = default;
+
+    void start()
     {
-        _stop(w);
+        _start();
     }
 
-    void pause(WatchContext *w)
+    void stop()
     {
-        _pause(w);
+        _stop();
+    }
+
+    void pause()
+    {
+        _pause();
     }
 
 private:
-    virtual void _start(WatchContext *w) = 0;
-    virtual void _stop(WatchContext *w) = 0;
-    virtual void _pause(WatchContext *w) = 0;
+    virtual void _start() = 0;
+    virtual void _stop() = 0;
+    virtual void _pause() = 0;
+protected:
+    IWatchContext *w;
+private:
+    IWatchState(const IWatchState&) = delete;
+    IWatchState(IWatchState&&) = delete;
+    IWatchState& operator=(const IWatchState&) = delete;
+    IWatchState& operator=(IWatchState&&) = delete;
 };
 
 #endif // IWATCHSTATE_H
