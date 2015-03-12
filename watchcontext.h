@@ -21,6 +21,8 @@ private:
     std::unique_ptr<IWatchState> state;
     WatchContext(const WatchContext&) = delete;
     WatchContext& operator=(const WatchContext&) = delete;
+    WatchContext(WatchContext&&) = delete;
+    WatchContext& operator=(WatchContext&&) = delete;
 };
 
 #endif // WATCHCONTEXT_H
